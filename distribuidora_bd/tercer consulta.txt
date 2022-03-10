@@ -1,0 +1,7 @@
+SELECT ciudades.`ciudades` AS CIUDAD,regiones.`regiones`AS DEPARTAMENTO, paises.`paises`AS PAIS,
+COUNT(sucursales.`id_clientes`)AS CANTIDAD_SUCURSALES
+FROM ciudades
+INNER JOIN sucursales ON ciudades.`id`=sucursales.`id_ciudades`
+INNER JOIN regiones ON ciudades.`id_regiones`=regiones.`id`
+INNER JOIN paises ON regiones.`id_paises`= paises.`id`
+GROUP BY sucursales.`id_clientes`
